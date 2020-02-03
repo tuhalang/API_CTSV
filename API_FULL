@@ -1,0 +1,230 @@
+@NotNull
+@POST("SVGroup/AddNewSVGroup")
+Call<JsonObject> addNewSVGroup(@NotNull @Body JsonObject jsonObject);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/AddUserGroup")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> addUserGroup(@NotNull @Field("UserName") String str, @NotNull @Field("UserCode") String str2, @NotNull @Field("TokenCode") String str3, @NotNull @Field("Reason") String str4, @Field("GId") int i, @Field("UserRole") int i2, @Field("UGStatus") int i3, @NotNull @Field("Signature") String str5);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/AddUserGroupByEmail")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> addUserGroupByEmail(@NotNull @Field("UserName") String str, @NotNull @Field("Email") String str2, @NotNull @Field("TokenCode") String str3, @NotNull @Field("Reason") String str4, @Field("GId") int i, @Field("UserRole") int i2, @Field("UGStatus") int i3, @NotNull @Field("Signature") String str5);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/ApproveActivity")
+Call<JsonObject> approveActivity(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("AId") int i, @NotNull @Field("Signature") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/ApproveLstUserGroup")
+Call<JsonObject> approveLstUserGroup(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCodeLst") String str3, @Field("GId") int i, @NotNull @Field("Signature") String str4);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/ApproveUserActivity")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> approveUserActivity(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("UserRole") int i, @Field("AId") int i2, @NotNull @Field("Signature") String str4);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/ApproveUserGroup")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> approveUserGroup(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("GId") int i, @Field("UserRole") int i2, @NotNull @Field("Signature") String str4);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/AssessActivity")
+Call<JsonObject> assessActivity(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("AId") int i, @NotNull @Field("Comment") String str4, @Field("AValue") int i2, @NotNull @Field("Signature") String str5);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/AssignUserActivity")
+LiveData<ApiResponse<CTSVAssignUserActivityRes>> assignUserActivity(@NotNull @Field("UserName") String str, @NotNull @Field("UserCode") String str2, @NotNull @Field("TokenCode") String str3, @NotNull @Field("Reason") String str4, @Field("AId") int i, @Field("UserRole") int i2, @NotNull @Field("CheckInPlace") String str5, @Field("UAStatus") int i3, @NotNull @Field("Signature") String str6);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/AssignUserActivityByEmail")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> assignUserActivityByEmail(@NotNull @Field("UserName") String str, @NotNull @Field("Email") String str2, @NotNull @Field("TokenCode") String str3, @NotNull @Field("Reason") String str4, @Field("AId") int i, @Field("UserRole") int i2, @NotNull @Field("CheckInPlace") String str5, @Field("UAStatus") int i3, @NotNull @Field("Signature") String str6);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/ChangePassword")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> changePassword(@NotNull @Field("UserName") String str, @NotNull @Field("Password") String str2, @NotNull @Field("NewPassword") String str3, @NotNull @Field("FromIP") String str4, @NotNull @Field("TokenCode") String str5, @NotNull @Field("DeviceInfo") String str6, @NotNull @Field("Signature") String str7);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/CheckOTPLostPassword")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> checkOTPLostPassword(@NotNull @Field("UserName") String str, @NotNull @Field("DeviceInfo") String str2, @NotNull @Field("OTP") String str3, @NotNull @Field("Signature") String str4);
+
+@NotNull
+@POST("Activity/CreateActivity")
+Call<JsonObject> createActivity(@NotNull @Body JsonObject jsonObject);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityByCId")
+LiveData<ApiResponse<CTSVGetActivityByCIdRes>> getActivityByCId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("CId") int i, @NotNull @Field("Signature") String str3, @NotNull @Field("Search") String str4, @Field("NumberRow") int i2, @Field("PageNumber") int i3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityByGId")
+LiveData<ApiResponse<CTSVGetActivityByGIdRes>> getActivityByGId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("GId") int i, @NotNull @Field("Signature") String str3, @NotNull @Field("Search") String str4, @Field("NumberRow") int i2, @Field("PageNumber") int i3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityById")
+LiveData<ApiResponse<CTSVGetActivityByIdRes>> getActivityById(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("AId") int i);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityByUser")
+LiveData<ApiResponse<CTSVGetActivityByUserRes>> getActivityByUser(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityByUserUnit")
+LiveData<ApiResponse<CTSVGetActivityByUserUnitRes>> getActivityByUserUnit(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityGroup")
+Call<JsonObject> getActivityGroup(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityGroupByGId")
+LiveData<ApiResponse<CTSVGetActivityGroupByGIdRes>> getActivityGroupByGId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("GId") int i);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/GetChildGroupByGId")
+LiveData<ApiResponse<CTSVGetSVGroupRes>> getChildGroupByGId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("GId") int i);
+
+@FormUrlEncoded
+@NotNull
+@POST("Criteria/GetCriteriaGroupByCTId")
+LiveData<ApiResponse<CTSVGetCriteriaGroupByCTIdRes>> getCriteriaGroupByCTId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("CTId") String str3, @NotNull @Field("Signature") String str4);
+
+@FormUrlEncoded
+@NotNull
+@POST("Criteria/GetCriteriaGroupDetails")
+LiveData<ApiResponse<CTSVGetCriteriaGroupDetailsRes>> getCriteriaGroupDetails(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("Signature") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Criteria/GetCriteriaReportByUser")
+LiveData<ApiResponse<CTSVGetCriteriaReportReq>> getCriteriaReportByUser(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("Signature") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Criteria/GetCriteriaValueByCId")
+Call<JsonObject> getCriteriaValueByCId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("CId") int i, @NotNull @Field("Signature") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/GetSVGroup")
+LiveData<ApiResponse<CTSVGetSVGroupRes>> getSVGroup(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/GetSVGroupById")
+LiveData<ApiResponse<CTSVGetSVGroupByIdRes>> getSVGroupById(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("GId") int i);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/GetSVGroupByUser")
+LiveData<ApiResponse<CTSVGetSVGroupRes>> getSVGroupByUser(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2);
+
+@FormUrlEncoded
+@NotNull
+@POST("SVGroup/GetSVGroupByUserAdmin")
+LiveData<ApiResponse<CTSVGetSVGroupRes>> getSVGroupByUserAdmin(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("CTSV/GetScheduleStudent")
+LiveData<ApiResponse<CTSVGetScheduleStudentRes>> getScheduleStudent(@NotNull @Field("UserName") String str, @NotNull @Field("UserCode") String str2, @NotNull @Field("Token") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetUserActivityApprovedByAId")
+LiveData<ApiResponse<CTSVGetUserActivityByAIdRes>> getUserActivityApprovedByAId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("AId") int i, @NotNull @Field("Signature") String str3, @NotNull @Field("Search") String str4, @Field("NumberRow") int i2, @Field("PageNumber") int i3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetUserActivityInfo")
+Call<JsonObject> getUserActivityInfo(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("AId") int i, @NotNull @Field("Signature") String str4);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetUserActivityPendingByAId")
+LiveData<ApiResponse<CTSVGetUserActivityByAIdRes>> getUserActivityPendingByAId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("AId") int i, @NotNull @Field("Signature") String str3, @NotNull @Field("Search") String str4, @Field("NumberRow") int i2, @Field("PageNumber") int i3);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/GetUserApprovedByGId")
+LiveData<ApiResponse<CTSVGetUserByGIdRes>> getUserApprovedByGId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("GId") int i, @NotNull @Field("Signature") String str3, @NotNull @Field("Search") String str4, @Field("NumberRow") int i2, @Field("PageNumber") int i3);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetUserCheckInActivity")
+LiveData<ApiResponse<CTSVGetUserCheckInActivityRes>> getUserCheckInActivity(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("AId") int i, @NotNull @Field("Signature") String str4);
+
+@FormUrlEncoded
+@NotNull
+@POST("UserClass/GetDetailUserInfo")
+LiveData<ApiResponse<CTSVGetUserInfoRes>> getUserInfo(@NotNull @Field("UserName") String str, @NotNull @Field("UserCode") String str2, @NotNull @Field("TokenCode") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/GetUserMessage")
+LiveData<ApiResponse<CTSVGetUserMessageRes>> getUserMessage(@NotNull @Field("UserName") String str, @NotNull @Field("UserCode") String str2, @NotNull @Field("TokenCode") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/GetUserPendingByGId")
+LiveData<ApiResponse<CTSVGetUserByGIdRes>> getUserPendingByGId(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @Field("GId") int i, @NotNull @Field("Signature") String str3, @NotNull @Field("Search") String str4, @Field("NumberRow") int i2, @Field("PageNumber") int i3);
+
+@FormUrlEncoded
+@NotNull
+@POST("UserRole/GetUserRole")
+Call<JsonObject> getUserRole(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/UserLogin")
+LiveData<ApiResponse<CTSVUserLoginRes>> login(@NotNull @Field("UserName") String str, @NotNull @Field("Password") String str2);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/LogOut")
+Call<JsonObject> logout(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("Signature") String str3);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/LostPassword")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> lostPassword(@NotNull @Field("UserName") String str, @NotNull @Field("DeviceInfo") String str2, @NotNull @Field("Signature") String str3);
+
+@NotNull
+@POST("Activity/UpdateActivity")
+Call<JsonObject> updateActivity(@NotNull @Body JsonObject jsonObject);
+
+@NotNull
+@POST("SVGroup/UpdateSVGroup")
+Call<JsonObject> updateSVGroup(@NotNull @Body JsonObject jsonObject);
+
+@Multipart
+@NotNull
+@POST("UploadFile/CTSV/UploadProofImage")
+LiveData<ApiResponse<CTSVAssignUserActivityRes>> uploadFile(@NotNull @Query("UserCode") String str, @NotNull @Query("TokenCode") String str2, @Query("AId") int i, @NotNull @Part MultipartBody.Part part);
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/UserCheckinActivity")
+LiveData<ApiResponse<CTSVAssignUserActivityRes>> userCheckinActivity(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("AId") int i, @Field("Longitude") double d, @Field("Latitude") double d2, @NotNull @Field("Address") String str4, @NotNull @Field("Signature") String str5);
+
+@FormUrlEncoded
+@NotNull
+@POST("User/UserRegister")
+LiveData<ApiResponse<CTSVAssignUserActivityByEmailRes>> userRegister(@NotNull @Field("FromIP") String str, @NotNull @Field("DeviceInfo") String str2, @NotNull @Field("UserName") String str3, @NotNull @Field("Email") String str4, @NotNull @Field("Mobile") String str5, @NotNull @Field("Signature") String str6);

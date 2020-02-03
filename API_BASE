@@ -1,0 +1,80 @@
+1. Login system
+- Api: http://ctsv.hust.edu.vn/api-t/User/UserLogin
+- Method: POST
+
+@FormUrlEncoded
+@NotNull
+@POST("User/UserLogin")
+LiveData<ApiResponse<CTSVUserLoginRes>> login(@NotNull @Field("UserName") String str, @NotNull @Field("Password") String str2);
+
+- Response: 
+{
+    "RespCode": 0,
+    "RespText": "Đăng nhập thành công",
+    "UserName": "********",
+    "FullName": "********",
+    "Email": "**********",
+    "UType": 0,
+    "Avatar": "",
+    "TokenCode": "XXXXXXXXXX",
+    "Signature": "XXXX"
+}
+
+2. Get Activities By Username
+- Api: http://ctsv.hust.edu.vn/api-t/Activity/GetActivityByUser
+- Method: POST
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/GetActivityByUser")
+LiveData<ApiResponse<CTSVGetActivityByUserRes>> getActivityByUser(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3);
+
+- Response: 
+{
+    "RespCode": 0,
+    "RespText": "OK",
+    "Activities": [
+        {
+            "AId": 280,
+            "ACode": "280",
+            "AName": "Lễ hội văn hoá Nhật Bản Oshougatsu 2020",
+            "AType": "Sinh hoạt chuyên đề",
+            "ADesc": "<p style=\"text-align: justify;\">⛩ Lễ hội văn ho&aacute; Nhật Bản Oshougatsu 2020 ⛩<br /><br />Lễ hội Oshougatsu l&agrave; một chương tr&igrave;nh thường ni&ecirc;n, phi lợi nhuận nhằm t&aacute;i hiện lại kh&ocirc;ng kh&iacute; ng&agrave;y tết truyền thống Oshougatsu của Nhật Bản tại Việt Nam cũng như ph&aacute;t triển hoạt động giao lưu văn h&oacute;a giữa Việt Nam &ndash; Nhật Bản.<br /><strong>&Yacute; nghĩa v&agrave; mục đ&iacute;ch:</strong><br />✨ T&aacute;i hiện kh&ocirc;ng kh&iacute; Tết truyền thống Nhật Bản ngay tại thủ đ&ocirc; H&agrave; Nội, g&oacute;p phần củng cố mối quan hệ th&acirc;n thiết giữa hai nước Việt Nam &ndash; Nhật Bản.<br />✨ Giới thiệu tới sinh vi&ecirc;n v&agrave; c&aacute;c kh&aacute;ch mời những n&eacute;t đặc sắc về văn h&oacute;a trong ng&agrave;y tết Oshougatsu của Nhật Bản - những phong tục, tập qu&aacute;n, những m&oacute;n ăn v&agrave; tr&ograve; chơi truyền thống. <br />✨ Một s&acirc;n chơi bổ &iacute;ch, l&agrave;nh mạnh, miễn ph&iacute; cho sinh vi&ecirc;n sau những giờ học tập căng thẳng, một dấu ấn kết th&uacute;c năm cũ trong vui vẻ v&agrave; ấm c&uacute;ng trước khi bước v&agrave;o k&igrave; nghỉ Tết Nguy&ecirc;n Đ&aacute;n.<br />✨ Tạo th&ecirc;m một m&ocirc;i trường l&agrave;m việc năng động, s&aacute;ng tạo, gi&uacute;p c&aacute;c bạn sinh vi&ecirc;n c&oacute; cơ hội trau dồi kĩ năng mềm khi tham gia c&ocirc;ng t&aacute;c tổ chức.<br />✨ Tạo cơ hội l&agrave;m quen, tr&ograve; chuyện giữa c&aacute;c sinh vi&ecirc;n trường Đại học B&aacute;ch Khoa H&agrave; Nội với cộng đồng học tiếng Nhật cũng như những người y&ecirc;u th&iacute;ch văn h&oacute;a Nhật Bản; tạo cơ hội giao lưu, n&oacute;i chuyện với những người nước ngo&agrave;i c&oacute; chung sở th&iacute;ch.<br />✨ Đặc biệt đ&acirc;y c&ograve;n l&agrave; dịp để những người Nhật xa qu&ecirc; hương được thấy h&igrave;nh ảnh ng&agrave;y Tết truyền thống của đất nước m&igrave;nh ngay ch&iacute;nh tại Việt Nam.</p>\n<p style=\"text-align: justify;\"><strong>Thu thập minh chứng tham gia bằng c&aacute;ch:</strong></p>\n<ul>\n<li style=\"text-align: justify;\">C&agrave;i app iCTSV thực hiện Checkin, chụp ảnh tại sự kiện (Khung thời gian v&agrave; Địa điểm)</li>\n</ul>",
+            "StartTime": "2020-01-12 08:00:00",
+            "FinishTime": "2020-01-12 18:00:00",
+            "APlace": "Sân C9, Đại học Bách Khoa Hà Nội",
+            "GId": 79,
+            "GName": "Phòng CTSV",
+            "AGId": 0,
+            "Data": "",
+            "CreateDate": "2020-01-09 14:53:48",
+            "CreateUser": "tien.nguyenviet@hust.edu.vn",
+            "AStatus": 1,
+            "UAStatus": 2,
+            "ARefId": "",
+            "ACriteriaLst": "",
+            "AGDesc": "Sinh hoạt chuyên đề",
+            "UserRole": 2
+        }
+    ],
+    "Signature": "Test",
+    "NumberPage": 0
+}
+
+3. Upload Proof Image
+- Api: http://ctsv.hust.edu.vn/api-t/UploadFile/CTSV/UploadProofImage
+- Method: POST
+
+@Multipart
+@NotNull
+@POST("UploadFile/CTSV/UploadProofImage")
+LiveData<ApiResponse<CTSVAssignUserActivityRes>> uploadFile(@NotNull @Query("UserCode") String str, @NotNull @Query("TokenCode") String str2, @Query("AId") int i, @NotNull @Part MultipartBody.Part part);
+
+4. CheckIn Activities
+- Api: http://ctsv.hust.edu.vn/api-t/Activity/UserCheckinActivity
+- Method: POST
+
+@FormUrlEncoded
+@NotNull
+@POST("Activity/UserCheckinActivity")
+LiveData<ApiResponse<CTSVAssignUserActivityRes>> userCheckinActivity(@NotNull @Field("UserName") String str, @NotNull @Field("TokenCode") String str2, @NotNull @Field("UserCode") String str3, @Field("AId") int i, @Field("Longitude") double d, @Field("Latitude") double d2, @NotNull @Field("Address") String str4, @NotNull @Field("Signature") String str5);
