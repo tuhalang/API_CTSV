@@ -17,7 +17,8 @@ public class ConstantsKt {
     public static final long SERVER_CALL_DELAY_MILLISECONDS = 1000;
     public static final String SHARED_PREFERENCES_NAME = "shared_preferences_ctsv_version8";
     public static final int VERSION_DB = 8;
-    public static final double latitude = 21.004947;
-    public static final double longitude = 105.844171;
-    public static final String address = "Bach Khoa, Đồng Tâm, Hai Bà Trưng District, Hanoi, Vietnam";
+    public static final double latitude[] = {21.004947, 21.004391};
+    public static final double longitude[] = {105.844171, 105.846619};
+    public static final String address[] = {"Bach Khoa, Đồng Tâm, Hai Bà Trưng District, Hanoi, Vietnam",
+            "B1, Bách Khoa, Hai Bà Trưng, Hà Nội, Vietnam"};
 }
