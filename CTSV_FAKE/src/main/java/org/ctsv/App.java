@@ -1,6 +1,5 @@
 package org.ctsv;
 
-import com.google.gson.internal.$Gson$Preconditions;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -8,7 +7,6 @@ import okhttp3.RequestBody;
 import org.ctsv.model.Activity;
 import org.ctsv.model.RespActivity;
 import org.ctsv.model.RespLogin;
-import org.ctsv.model.RespUpload;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
@@ -26,7 +24,7 @@ public class App {
     private static final Logger logger = Logger.getLogger(App.class.getName());
     private static String _username = "";
     private static String _tokencode = "";
-    private static boolean _isLogin = false;
+    private static boolean _isLogin = true;
     private static String _signature = "";
 
     private static void showMenu(WebService service){
@@ -50,10 +48,10 @@ public class App {
             }
         }else{
             System.out.println("1. List activities");
-            System.out.println("2. Upload proof image (require AId)");
-            System.out.println("3. CheckIn (require AId)");
+            System.out.println("2. Upload proof image and check-in (require AId)");
+            System.out.println("3. Logout");
             System.out.print("Choose: ");
-            int choose = scanner.nextInt();
+            int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
                     List<Activity> activities = getActivities(service, _username, _tokencode, _username);
@@ -63,13 +61,18 @@ public class App {
                     System.out.print("Enter path to image in your device: ");
                     String path = scanner.nextLine();
                     System.out.print("Enter AId: ");
-                    int AId = scanner.nextInt();
+                    int AId = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Choose location to check-in: (0-TQB, 1-B1)");
+                    int locationId = Integer.parseInt(scanner.nextLine());
                     uploadImage(service, _username, _tokencode, AId, path);
+                    checkIn(service, _username, _tokencode, _username, AId, ConstantsKt.longitude[locationId], ConstantsKt.latitude[locationId], ConstantsKt.address[locationId], _signature);
                     break;
                 case 3:
-                    System.out.print("Enter AId: ");
-                    int Aid = scanner.nextInt();
-                    checkIn(service, _username, _tokencode, _username, Aid, ConstantsKt.longitude, ConstantsKt.latitude, ConstantsKt.address, _signature);
+                    logout(service, _username, _tokencode, _signature);
+                    _username = "";
+                    _tokencode = "";
+                    _signature = "";
+                    _isLogin = false;
                     break;
                 default:
                     break;
@@ -127,7 +130,7 @@ public class App {
         try {
             Response<RespActivity> response = callSync.execute();
             RespActivity apiResponse = response.body();
-            logger.info("ResponseActivities: " + apiResponse);
+            //logger.info("ResponseActivities: " + apiResponse);
             return apiResponse.getActivities();
         } catch (Exception ex) {
             logger.severe(ex.getMessage());
@@ -163,6 +166,20 @@ public class App {
             logger.info("ResponseCheckIn: " + apiResponse);
             return apiResponse;
 
+        } catch (Exception ex) {
+            logger.severe(ex.getMessage());
+            return null;
+        }
+    }
+
+    private static Object logout(WebService service, String Username, String TokenCode, String Signature){
+        Call<Object> callSync = service.logout(Username, TokenCode, Signature);
+
+        try {
+            Response<Object> response = callSync.execute();
+            Object apiResponse = response.body();
+            logger.info("ResponseLogout: " + apiResponse);
+            return apiResponse;
         } catch (Exception ex) {
             logger.severe(ex.getMessage());
             return null;
