@@ -2,13 +2,14 @@ package org.ctsv.model;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RespActivity {
 
     private int RespCode;
     private String RespText;
-    private List<Activity> activities;
+    private List<Activity> Activities = new ArrayList<>();
     private String Signature;
     private int NumberPage;
 
@@ -29,11 +30,11 @@ public class RespActivity {
     }
 
     public List<Activity> getActivities() {
-        return activities;
+        return Activities;
     }
 
     public void setActivities(List<Activity> activities) {
-        this.activities = activities;
+        Activities = activities;
     }
 
     public String getSignature() {
