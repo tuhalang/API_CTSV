@@ -24,7 +24,7 @@ public class App {
     private static final Logger logger = Logger.getLogger(App.class.getName());
     private static String _username = "";
     private static String _tokencode = "";
-    private static boolean _isLogin = true;
+    private static boolean _isLogin = false;
     private static String _signature = "";
 
     private static void showMenu(WebService service){
@@ -81,7 +81,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        WebService service = getService(1);
+        WebService service = getService(0);
         while(true){
             showMenu(service);
         }
